@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: SecularOne;
+  src: url("./assets/font/SecularOne-Regular.ttf");
+}
+@font-face {
+  font-family: default-font;
+  font-size: 14px;
+  line-height: 1.5em;
+  src: url("./assets/font/Kantumruy-Regular.ttf");
+}
+
+@font-face {
+  font-family: barcode-font;
+  src: url("./assets/font/code39.ttf");
+}
+
+@font-face {
+  font-family: font-styte;
+  src: url("./assets/font/Moulpali-Regular.ttf");
+}
+
+@font-face {
+  font-family: moul-font;
+  src: url("./assets/font/Moul-Regular.ttf");
+}
+
+*:not(.fas):not(.fab) {
+  font-family: "Roboto", default-font, serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@media only screen {
+  body {
+    min-width: 1280px;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//@import "./assets/fontawesome/less/_variables";
+//@import "./assets/fontawesome/less/solid";
+//@import "./assets/fontawesome/less/brands";
+//@import "./assets/fontawesome/less/fontawesome";
+
+/* receipt preview & printing. */
+app-receipt-preview {
+  visibility: hidden;
+  position: fixed;
+  left: 24px;
+  top: 0;
+  right: 24px;
+}
+
+@media print {
+  @page vertical {
+    size: A4 portrait;
+  }
+  @page landscape {
+    size: A4 landscape;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .print-visible, .print-visible * {
+    visibility: visible;
+
+    .print-hidden, .print-hidden * {
+      visibility: hidden;
+    }
+  }
+
+  .print-visible {
+    left: 24px;
+    top: 0;
+    right: 24px;
+  }
+
+  app-receipt-preview {
+  @extend .print-visible;
+  }
+
+  .landscape-mode {
+    size: A4 landscape !important;
+  }
+
+  app-receipt-preview, app-receipt-preview * {
+    visibility: visible;
+  }
+
+  .print-visible {
+    position: unset !important;
+  }
+
+  .page-header, .ant-layout-header, nz-sider, .report-filter {
+    display: none !important;
+  }
+
+  .inner-content {
+    padding: 0 !important;
+  }
+
+  .ant-layout-content {
+    margin: 0 !important;
+  }
+
+  .ant-layout {
+    overflow-x: unset !important;
+  }
+
+  .page-content, .report-container {
+    overflow-y: unset !important;
+  }
+}
+
+.cdk-overlay-dark-backdrop {
+  background-color: inherit;
+}
+
+/* Global Style */
+.text-m {
+  font-family: moul-font, Roboto, monospace !important;
+}
