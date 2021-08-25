@@ -11,7 +11,7 @@ import {
 import { DASHBOARD_ROUTE } from '../dashboard/dashboard.routes';
 
 // override products module.
-// import '../product/product.routes';
+import '../product/product.routes';
 
 // // override language.
 // LANGUAGES.push({key:'th_TH', image:'../../assets/image/kh_FLAG.png'})
@@ -25,10 +25,10 @@ GENERAL_SETTINGS.push({
   index: 1,
   label: 'general_setting',
   children:[
-    {label: 'outlet', routerLink: '/feature1/outlet' , permissionKey: PermissionKeys.SALE_SECTION },
-    {label: 'template', routerLink: '/feature1/template', permissionKey: PermissionKeys.SALE_SECTION },
-    {label: 'currency', routerLink: '/feature1/currency', permissionKey: PermissionKeys.SALE_SECTION },
-    {label: 'auto_number', routerLink: '/feature1/autonumber', permissionKey: PermissionKeys.SALE_SECTION },
+    {label: 'outlet', routerLink: '/setting/outlet' , permissionKey: PermissionKeys.SALE_SECTION },
+    {label: 'template', routerLink: '/setting/template', permissionKey: PermissionKeys.SALE_SECTION },
+    {label: 'currency', routerLink: '/setting/currency', permissionKey: PermissionKeys.SALE_SECTION },
+    {label: 'auto_number', routerLink: '/setting/autonumber', permissionKey: PermissionKeys.SALE_SECTION },
   ]
 });
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@sgxbz/shared';
+import {GeneralModule, SharedModule} from '@sgxbz/shared';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product.component';
 import { UnitListComponent} from './unit/unit-list.component';
@@ -58,6 +58,7 @@ import { TextLimitPipe } from '../share/custom-pipe/text-limit.pipe';
   imports: [
     CommonModule,
     SharedModule.forRoot(),
+    GeneralModule,
   ]
 })
 export class ProductModule {

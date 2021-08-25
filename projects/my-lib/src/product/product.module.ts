@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@sgxbz/shared';
+import {GeneralModule, SharedModule} from '@sgxbz/shared';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product.component';
 import { UnitListComponent} from './unit/unit-list.component';
@@ -51,12 +51,13 @@ import { SettingComponent } from './setting.component';
   ],
   exports: [
   ],
-  imports: [
-    {
-      ngModule: SharedModule
-    },
-    CommonModule,
-  ]
+    imports: [
+        {
+            ngModule: SharedModule
+        },
+        CommonModule,
+        GeneralModule,
+    ]
 })
 export class ProductModule {
 }

@@ -92,6 +92,7 @@ export class SettingComponent implements OnInit {
             let obj = result.toObject();
             obj['item-autoid'] = +(obj['item-autoid']); // convert to number
             this.frm.setValue(obj);
+            console.log(this.frm.value)
           },
           (err: HttpErrorResponse) => this.message.msgHttpErr(err)
         );

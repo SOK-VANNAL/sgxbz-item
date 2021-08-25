@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { TokenHttpInterceptor, MainModule, ROUTES, RandomWaitInterceptor } from '@sgxbz/shared';
 import './override';
 import { SharedModule } from '@sgxbz/shared';
-import { ProductModule, register_module} from 'my-lib';
+import {ProductModule} from '../product/product.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
+import { GeneralModule } from '@sgxbz/shared';
 import { NgModule } from '@angular/core';
 
 console.log('Routers ', ROUTES);
-register_module();
+
 export class LazyTranslateLoader implements TranslateLoader {
   getTranslation(lang: string): Observable<any> {
     return from(import(`../assets/i18n/${lang}.json`));
@@ -36,7 +37,8 @@ export class LazyTranslateLoader implements TranslateLoader {
     SharedModule.forRoot(),
     MainModule,
     ProductModule,
-    DashboardModule
+    DashboardModule,
+    GeneralModule
   ],
   providers: [
     {
