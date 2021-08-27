@@ -59,7 +59,7 @@ import { SettingComponent } from './setting.component';
         GeneralModule,
     ]
 })
-export class ProductModule {
+export class ItemModule {
 }
 
 

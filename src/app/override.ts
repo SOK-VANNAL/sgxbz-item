@@ -11,7 +11,7 @@ import {
 import { DASHBOARD_ROUTE } from '../dashboard/dashboard.routes';
 
 // override products module.
-import '../product/product.routes';
+// import '../product/product.routes';
 
 // // override language.
 // LANGUAGES.push({key:'th_TH', image:'../../assets/image/kh_FLAG.png'})

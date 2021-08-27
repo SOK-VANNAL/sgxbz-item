@@ -3,8 +3,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {LogicHelperService, MessageHelperService, ProgressBarService, SettingList} from '@sgxbz/shared';
 import {SysSettingService} from '@sgxbz/shared';
-import { concat } from 'rxjs';
+import {concat, Observable} from 'rxjs';
 import {concatAll, map} from 'rxjs/operators';
+import { AutoNumberService } from '@sgxbz/shared';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-item-setting',
@@ -17,7 +19,14 @@ import {concatAll, map} from 'rxjs/operators';
               {{ "item_code" | translate }}
             </nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
-              <app-autonumber-select formControlName="item-autoid" [withBlankItem]="true"></app-autonumber-select>
+              <div nz-row nzAlign="middle" nzGutter="10">
+                <div nz-col nzSpan="14">
+                  <app-autonumber-select formControlName="item-autoid" [withBlankItem]="true" (ngModelChange)="getAutoNumber($event)"></app-autonumber-select>
+                </div>
+                <div nz-col nzSpan="10">
+                  <span>{{autoNumberPreview || ("loading" | translate)}}</span>
+                </div>
+              </div>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
@@ -40,12 +49,15 @@ export class SettingComponent implements OnInit {
   keys = ['item-autoid'];
   setting: SettingList;
   loading: boolean;
+  autoNumberPreview: string;
   constructor(
     private fb: FormBuilder,
     private logic: LogicHelperService,
     private progress: ProgressBarService,
     private message: MessageHelperService,
-    private settingService: SysSettingService
+    private settingService: SysSettingService,
+    public autoNumberService: AutoNumberService,
+    private translateService: TranslateService
   ) {
   }
   submit(): void {
@@ -96,5 +108,21 @@ export class SettingComponent implements OnInit {
           (err: HttpErrorResponse) => this.message.msgHttpErr(err)
         );
     }, 100);
+  }
+  getAutoNumber(id: any): void {
+    if (id){
+      this.autoNumberPreview = '';
+      this.autoNumberService.preview(id).subscribe(
+        preview => {
+          this.autoNumberPreview = preview;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+    else {
+      this.autoNumberPreview = this.translateService.instant('no_data');
+    }
   }
 }
