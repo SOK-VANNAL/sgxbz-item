@@ -12,7 +12,7 @@ import { Resource } from '@sgxbz/shared';
     <nz-layout>
       <nz-header style="display: flex; justify-content: space-between">
         <div style="width: 220px">
-          <app-filter-input storageKey="item-type-search" (filterChanged)="searchText=$event;onSearch()">
+          <app-filter-input storageKey="item-type-search" (filterChanged)="searchText=$event; param.pageIndex = 1;onSearch()">
           </app-filter-input>
 <!--          <app-item-type-select></app-item-type-select>-->
         </div>

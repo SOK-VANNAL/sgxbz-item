@@ -13,14 +13,14 @@ import { LocalStorageService } from '@sgxbz/shared';
       <nz-header style="display: flex; justify-content: space-between">
         <div style="display: flex">
           <div style="width: 220px">
-            <app-filter-input storageKey="item-search" (filterChanged)="searchText = $event; onSearch()">
+            <app-filter-input storageKey="item-search" (filterChanged)="searchText = $event; param.pageIndex = 1; onSearch()">
             </app-filter-input>
           </div>
 <!--          <div style="width: 220px; margin-left: 5px">-->
 <!--            <app-item-select storageKey="item-select" [allItemOption]="true"></app-item-select>-->
 <!--          </div>-->
           <div style="width: 220px; margin-left: 5px">
-            <app-item-type-select storageKey="item-list-select" [addButton]="false" [allItemOption]="true" (selectChanged)="filterItemType = $event; onSearch()"></app-item-type-select>
+            <app-item-type-select storageKey="item-list-select" [addButton]="false" [allItemOption]="true" (selectChanged)="filterItemType = $event; param.pageIndex = 1;  onSearch()"></app-item-type-select>
           </div>
         </div>
         <div>

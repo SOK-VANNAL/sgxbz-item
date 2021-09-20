@@ -2,7 +2,6 @@ import { Injectable, Inject } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { BaseApiService } from '@sgxbz/shared';
 
-
 export interface ItemList {
   id?: number;
   code?: string;
