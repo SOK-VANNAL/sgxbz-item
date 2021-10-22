@@ -195,7 +195,7 @@ export class ItemEditComponent implements OnInit{
     );
   }
   initControl(item: ItemEdit): void{
-    const {nameMaxLengthValidator, noteMaxLengthValidator, codeMaxLengthValidator, required, pattern, nameExistValidator, codeExistValidator, barcodeExistValidator} = CommonValidators;
+    const {nameMaxLengthValidator, noteMaxLengthValidator, codeMaxLengthValidator, required, pattern, nameExistValidator, codeExistValidator, barcodeExistValidator, priceValidator} = CommonValidators;
     this.frm = this.fb.group({
       code: [{value: item?.code, disabled: true }, [required, codeMaxLengthValidator()], [codeExistValidator(this.itemService, this.id)]],
       itemTypeId: [item?.itemTypeId, [required]],
@@ -205,8 +205,8 @@ export class ItemEditComponent implements OnInit{
       image: [item?.image, []],
       barcode: [item?.barcode, [codeMaxLengthValidator()], [barcodeExistValidator(this.itemService, this.id)]],
       unitId: [item?.unitId, [required]],
-      cost: [item?.cost, [required, pattern('-?[0-9]+(\\.[0-9][0-9]?)?')]],
-      price: [item?.price, [required, pattern('-?[0-9]+(\\.[0-9][0-9]?)?')]],
+      cost: [item?.cost, [required, priceValidator]],
+      price: [item?.price, [required, priceValidator]],
       isSale: [item?.isSale, []],
       isPurchase: [item?.isPurchase, []]
     });

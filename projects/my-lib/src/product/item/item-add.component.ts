@@ -194,9 +194,9 @@ export class ItemAddComponent implements OnInit{
   }
   initControl(item: ItemAdd): void{
     const {required, nameMaxLengthValidator, noteMaxLengthValidator, barcodeExistValidator,
-      codeMaxLengthValidator, pattern, nameExistValidator, codeExistValidator} = CommonValidators;
+      codeMaxLengthValidator, pattern, nameExistValidator, codeExistValidator, priceValidator} = CommonValidators;
     this.frm = this.fb.group({
-      code: [{value: item?.code, disabled: this.itemAutoId ? true : false}, [required, codeMaxLengthValidator()], [codeExistValidator(this.itemService, this.id ?? 0)]],
+      code: [{value: item?.code, disabled: !!this.itemAutoId}, [required, codeMaxLengthValidator()], [codeExistValidator(this.itemService, this.id ?? 0)]],
       itemTypeId: [item?.itemTypeId, [required]],
       name: [item?.name, [required, nameMaxLengthValidator()], [nameExistValidator(this.itemService)]],
       detail: [item?.detail, [noteMaxLengthValidator()]],
@@ -204,8 +204,8 @@ export class ItemAddComponent implements OnInit{
       image: [item?.image, []],
       barcode: [item?.barcode, [codeMaxLengthValidator()], [barcodeExistValidator(this.itemService, this.id ?? 0)]],
       unitId: [item?.unitId, [required]],
-      cost: [0, [required, pattern('-?[0-9]+(\\.[0-9][0-9]?[0-9]?[0-9]?[0-9]?[0-9]?)?')]],
-      price: [0, [required, pattern('-?[0-9]+(\\.[0-9][0-9]?[0-9]?[0-9]?[0-9]?[0-9]?)?')]],
+      cost: [0, [required, priceValidator]],
+      price: [0, [required, priceValidator]],
       isSale: [false, []],
       isPurchase: [false, []]
     });

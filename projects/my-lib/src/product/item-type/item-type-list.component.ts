@@ -30,7 +30,6 @@ import { Resource } from '@sgxbz/shared';
           #fixedTable
           nzTableLayout="fixed"
           [nzPageSizeOptions] = "pageSizeOption"
-          (nzPageSizeChange) = "localStorageService.setValue({key: itemTypePageSizeStorageKey, value: $event})"
           [nzData]="lists"
           [nzLoading]="loading"
           [nzTotal]="param.rowCount"
@@ -83,14 +82,14 @@ export class ItemTypeListComponent implements OnInit, OnDestroy{
     public uiService: ItemTypeUiService,
     public localStorageService: LocalStorageService
   ) {}
-  itemTypePageSizeStorageKey = 'item-type-page-size';
   pageSizeOption = Resource.pageSizeOption;
+  pageSizeOptionKey = 'item-type-list';
   refreshSub$: any;
   loading = false;
   searchText = '';
   lists: ItemTypeList[] = [];
   param: QueryParam = {
-    pageSize: this.localStorageService.getValue(this.itemTypePageSizeStorageKey) ?? 10,
+    pageSize: this.localStorageService.getCurrentPageSizeOption(this.pageSizeOptionKey) ?? 10,
     pageIndex: 1,
     sorts: 'name'
   };
@@ -132,6 +131,7 @@ export class ItemTypeListComponent implements OnInit, OnDestroy{
     this.param.sorts = (sortFound?.key ?? 'name') + (sortFound?.value === 'descend' ? '-' : '');
     this.param.pageSize = pageSize;
     this.param.pageIndex = pageIndex;
+    this.localStorageService.setPageSizeOptionKey(pageSize, this.pageSizeOptionKey);
     this.onSearch();
   }
 
