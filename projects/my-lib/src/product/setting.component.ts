@@ -12,18 +12,18 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-item-setting',
   template: `
     <div nz-row>
-      <div nz-col nzSpan="12">
+      <div nz-col [nzSpan]="16">
         <form nz-form *ngIf="frm" [formGroup]="frm" (ngSubmit)="submit()">
           <nz-form-item>
             <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired>
               {{ "item_code" | translate }}
             </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
-              <div nz-row nzAlign="middle" nzGutter="10">
-                <div nz-col nzSpan="14">
+            <nz-form-control [nzSm]="17" [nzXs]="24" nzErrorTip="">
+              <div nz-row nzAlign="middle" nzGutter="10" style="min-width: 350px">
+                <div nz-col [nzSpan]="14">
                   <app-autonumber-select formControlName="item-autoid" [withBlankItem]="true" (ngModelChange)="getAutoNumber($event)"></app-autonumber-select>
                 </div>
-                <div nz-col nzSpan="10">
+                <div nz-col [nzSpan]="10">
                   <span>{{autoNumberPreview || ("loading" | translate)}}</span>
                 </div>
               </div>
