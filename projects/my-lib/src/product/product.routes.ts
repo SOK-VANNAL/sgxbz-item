@@ -38,11 +38,12 @@ export function register_module() {
       routerLink: '/product',
       expanded: false,
       icon: 'shopping-cart',
+      index:2,
       permissionKey: PermissionKeys.SALE_SECTION,
       children: [
-        {label: 'unit', routerLink: '/product/unit', permissionKey: PermissionKeys.SALE_SECTION},
+        {label: 'item', routerLink: '/product/item', permissionKey: PermissionKeys.SALE_SECTION},
         {label: 'item_type', routerLink: '/product/item-type', permissionKey: PermissionKeys.SALE_SECTION},
-        {label: 'item', routerLink: '/product/item', permissionKey: PermissionKeys.SALE_SECTION}
+        {label: 'unit', routerLink: '/product/unit', permissionKey: PermissionKeys.SALE_SECTION}
       ]
     }
   );

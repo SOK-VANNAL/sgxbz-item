@@ -92,7 +92,7 @@ import { TranslateService } from '@ngx-translate/core';
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
-            <nz-form-label [nzSm]="8" [nzXs]="24">{{
+            <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
               "barcode" | translate
               }}</nz-form-label>
             <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="" nzHasFeedback>

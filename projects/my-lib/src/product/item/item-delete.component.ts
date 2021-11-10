@@ -25,7 +25,7 @@ import { CommonValidators } from '@sgxbz/shared';
           <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
             "name" | translate
             }}</nz-form-label>
-          <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="">
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
             <input nz-input formControlName="name"/>
           </nz-form-control>
         </nz-form-item>
@@ -34,7 +34,7 @@ import { CommonValidators } from '@sgxbz/shared';
           <nz-form-label [nzSm]="8" [nzXs]="12">{{
             "note" | translate
             }}</nz-form-label>
-          <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="">
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
             <textarea nz-input type="text" formControlName="note" rows="3"></textarea>
           </nz-form-control>
         </nz-form-item>
