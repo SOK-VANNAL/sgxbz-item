@@ -16,24 +16,24 @@ import { CommonValidators } from '@sgxbz/shared';
     </div>
     <div class="modal-content">
       <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
-      <div *ngIf="errMessage && !loading" style="text-align: center; margin-bottom: 10px">
+      <div *ngIf="errMessage && !loading" style="text-align: center; margin-top: 10px">
         <span nz-typography nzType="danger">{{errMessage}}</span>
       </div>
       <form nz-form [formGroup]="frm" (ngSubmit)="submit()">
         <nz-form-item>
-          <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
+          <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired>{{
             "name" | translate
             }}</nz-form-label>
-          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
+          <nz-form-control [nzSm]="15" [nzXs]="24" nzErrorTip="">
             <input nz-input formControlName="name"/>
           </nz-form-control>
         </nz-form-item>
 
         <nz-form-item *ngIf="!errMessage && unit.name">
-          <nz-form-label [nzSm]="8" [nzXs]="12">{{
+          <nz-form-label [nzSm]="7" [nzXs]="12">{{
             "note" | translate
             }}</nz-form-label>
-          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
+          <nz-form-control [nzSm]="15" [nzXs]="24" nzErrorTip="">
             <textarea nz-input type="text" formControlName="note" rows="3"></textarea>
           </nz-form-control>
         </nz-form-item>
@@ -50,11 +50,6 @@ import { CommonValidators } from '@sgxbz/shared';
       </div>
     </div>
   `,
-  styles: [`
-    .modal-content{
-      padding: 20px;
-    }
-  `],
   styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 

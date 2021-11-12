@@ -25,7 +25,7 @@ export class UnitUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '210px'},
+      nzBodyStyle: {height: '220px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'edited', value: e.unit});
       }
@@ -40,7 +40,7 @@ export class UnitUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '210px'},
+      nzBodyStyle: {height: '220px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'deleted', value: e.unit});
       }
@@ -54,7 +54,7 @@ export class UnitUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '210px'},
+      nzBodyStyle: {height: '220px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'added', value: e.unit, componentId});
       }
@@ -69,7 +69,7 @@ export class UnitUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '210px'},
+      nzBodyStyle: {height: '220px'},
     });
   }
 }

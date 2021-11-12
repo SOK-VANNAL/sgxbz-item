@@ -15,23 +15,23 @@ import { CommonValidators } from '@sgxbz/shared';
       <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
       <form nz-form [formGroup]="frm" (ngSubmit)="submit()" [nzAutoTips]="autoTips">
         <nz-form-item>
-          <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
+          <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired>{{
             "name" | translate
             }}</nz-form-label>
-          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="" nzHasFeedback>
+          <nz-form-control [nzSm]="15" [nzXs]="24" nzErrorTip="" nzHasFeedback>
             <input nz-input formControlName="name" />
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
-          <nz-form-label [nzSm]="8" [nzXs]="24">{{
+          <nz-form-label [nzSm]="7" [nzXs]="24">{{
             "note" | translate
             }}</nz-form-label>
-          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="">
+          <nz-form-control [nzSm]="15" [nzXs]="24" nzErrorTip="">
               <textarea
                 nz-input
                 type="text"
                 formControlName="note"
-                rows="3"
+                rows="5"
               ></textarea>
           </nz-form-control>
         </nz-form-item>
@@ -48,11 +48,6 @@ import { CommonValidators } from '@sgxbz/shared';
       </form>
     </div>
   `,
-  styles: [`
-    .modal-content{
-      padding: 20px;
-    }
-  `],
   styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 
