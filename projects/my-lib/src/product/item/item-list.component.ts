@@ -67,15 +67,37 @@ import { LocalStorageService } from '@sgxbz/shared';
             <td nzEllipsis>{{ item.detail }}</td>
             <td nzEllipsis>{{ item.itemType }}</td>
             <td nzEllipsis>{{item.note }}</td>
-            <td class="action-row">
-              <a nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu1" nzPlacement="bottomRight" style="border: none; background: none; box-shadow: none">
-                <i nz-icon nzType="ellipsis" nzTheme="outline" style="font-size: larger"></i>
+            <td nzEllipsis class="action-row">
+              <a
+                [nzDropdownMenu]="menu"
+                class="action-button"
+                nz-dropdown
+                nzTrigger="click"
+                nzPlacement="bottomRight"
+              >
+                <!--                <i class="fas fa-ellipsis-h"></i>-->
+                <i nz-icon nzType="ellipsis" nzTheme="outline" style="font-size: 22px"></i>
               </a>
-              <nz-dropdown-menu #menu1="nzDropdownMenu">
-                <ul nz-menu>
-                  <li nz-menu-item (click)="uiService.showEdit(item.id)"><i nz-icon nzType="edit" nzTheme="outline"></i>{{'edit' | translate}}</li>
-                  <li nz-menu-item (click)="uiService.showDelete(item.id)"><i nz-icon nzType="delete" nzTheme="outline"></i>{{'delete' | translate}}</li>
-                  <li nz-menu-item (click)="uiService.showAdd(item.id)"><i nz-icon nzType="copy" nzTheme="outline"></i>{{'copy' | translate}}</li>
+              <nz-dropdown-menu #menu="nzDropdownMenu">
+                <ul nz-menu nzSelectable>
+                  <li class="menu-item" nz-menu-item>
+                    <a (click)="uiService.showEdit(item.id)">
+                      <i nz-icon nzType="edit"></i>&nbsp;
+                      <span class="action-text"> {{ "edit" | translate }}</span>
+                    </a>
+                  </li>
+                  <li class="menu-item" nz-menu-item>
+                    <a (click)="uiService.showDelete(item.id)">
+                      <i nz-icon nzType="delete"></i>&nbsp;
+                      <span class="action-text"> {{ "delete" | translate }}</span>
+                    </a>
+                  </li>
+                  <li class="menu-item" nz-menu-item>
+                    <a (click)="uiService.showAdd(item.id)">
+                      <i nz-icon nzType="copy"></i>&nbsp;
+                      <span class="action-text"> {{ "copy" | translate }}</span>
+                    </a>
+                  </li>
                 </ul>
               </nz-dropdown-menu>
             </td>

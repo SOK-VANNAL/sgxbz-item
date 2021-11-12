@@ -24,7 +24,7 @@ export class ItemTypeUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '270px'},
+      nzBodyStyle: {height: '260px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'edited', value: e.itemType});
       }
@@ -39,7 +39,7 @@ export class ItemTypeUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '270px'},
+      nzBodyStyle: {height: '260px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'deleted', value: e.itemType});
       }
@@ -54,7 +54,7 @@ export class ItemTypeUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '270px'},
+      nzBodyStyle: {height: '260px'},
     });
   }
   showAdd(componentId: string = ''): void{
@@ -65,7 +65,7 @@ export class ItemTypeUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '270px'},
+      nzBodyStyle: {height: '260px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'added', value: e.itemType, componentId});
       }

@@ -15,7 +15,7 @@ import {SysSettingService} from '@sgxbz/shared';
       <span *ngIf="!id">{{'add_new'|translate}}</span>
     </div>
     <div class="modal-content">
-      <nz-spin *ngIf="loading"></nz-spin>
+      <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
       <form nz-form [formGroup]="frm" (ngSubmit)="submit()" style="display: flex; justify-content: space-around" [nzAutoTips]="autoTips">
         <div nz-col [nzSpan]="11">
           <nz-form-item>
@@ -145,6 +145,7 @@ import {SysSettingService} from '@sgxbz/shared';
       padding: 20px;
     }
   `],
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 export class ItemAddComponent implements OnInit{
   constructor(

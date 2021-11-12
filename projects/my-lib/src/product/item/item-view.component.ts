@@ -14,7 +14,7 @@ import { ItemUiService } from './item-ui.service';
         </span>
     </div>
     <div class="modal-content">
-      <nz-spin *ngIf="loading"></nz-spin>
+      <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
       <form nz-form [formGroup]="frm" style="display: flex; justify-content: space-around">
         <div nz-col [nzSpan]="11">
           <nz-form-item>
@@ -156,6 +156,7 @@ import { ItemUiService } from './item-ui.service';
       padding: 20px;
     }
   `],
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 export class ItemViewComponent implements OnInit, OnDestroy{
   constructor(

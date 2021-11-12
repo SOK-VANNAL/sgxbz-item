@@ -16,7 +16,7 @@ import { CommonValidators } from '@sgxbz/shared';
       <span *ngIf="id">{{ (item.name || ('loading'|translate)) | textLimit:50}}</span>
     </div>
     <div class="modal-content">
-      <nz-spin *ngIf="loading"></nz-spin>
+      <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
       <div *ngIf="errMessage && !loading" style="text-align: center; margin-bottom: 10px">
         <span nz-typography nzType="danger">{{errMessage}}</span>
       </div>
@@ -41,7 +41,7 @@ import { CommonValidators } from '@sgxbz/shared';
       </form>
 
       <div *nzModalFooter>
-        <button *ngIf="!errMessage && item.name" nz-button nzDanger [disabled]="frm.invalid" (click)="submit()" >
+        <button *ngIf="!errMessage && item.name" nz-button nzDanger nzType="primary" [disabled]="frm.invalid" (click)="submit()" >
           <i *ngIf="loading" nz-icon nzType="loading"></i>
           {{ "delete" | translate }}
         </button>
@@ -56,6 +56,7 @@ import { CommonValidators } from '@sgxbz/shared';
       padding: 20px;
     }
   `],
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 
 export class ItemDeleteComponent implements OnInit{

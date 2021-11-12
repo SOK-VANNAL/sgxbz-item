@@ -16,7 +16,7 @@ import { CommonValidators } from '@sgxbz/shared';
         </span>
     </div>
     <div class="modal-content">
-      <nz-spin *ngIf="loading"></nz-spin>
+      <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
       <form nz-form [formGroup]="frm" (ngSubmit)="submit()" [nzAutoTips]="autoTips">
         <nz-form-item>
           <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
@@ -56,6 +56,7 @@ import { CommonValidators } from '@sgxbz/shared';
       padding: 20px;
     }
   `],
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 
 export class UnitEditComponent implements OnInit{

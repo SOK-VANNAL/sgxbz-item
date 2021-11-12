@@ -17,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
         </span>
     </div>
     <div class="modal-content">
-      <nz-spin *ngIf="loading"></nz-spin>
+      <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
       <form nz-form [formGroup]="frm" (ngSubmit)="submit()" style="display: flex; justify-content: space-around" [nzAutoTips]="autoTips">
         <div nz-col [nzSpan]="11">
           <nz-form-item>
@@ -147,6 +147,7 @@ import { TranslateService } from '@ngx-translate/core';
       padding: 20px;
     }
   `],
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 
 export class ItemEditComponent implements OnInit{
