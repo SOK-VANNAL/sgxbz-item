@@ -42,7 +42,7 @@ import { CommonValidators } from '@sgxbz/shared';
             "note" | translate
             }}</nz-form-label>
           <nz-form-control [nzSm]="15" [nzXs]="24" nzErrorTip="">
-            <textarea nz-input type="text" formControlName="note" rows="3"></textarea>
+            <textarea nz-input type="text" formControlName="note" rows="5"></textarea>
           </nz-form-control>
         </nz-form-item>
       </form>
