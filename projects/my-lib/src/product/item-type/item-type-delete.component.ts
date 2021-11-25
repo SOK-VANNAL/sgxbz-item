@@ -38,7 +38,7 @@ import { CommonValidators } from '@sgxbz/shared';
           </nz-form-control>
         </nz-form-item>
         <nz-form-item  *ngIf="!errMessage && itemType.id">
-          <nz-form-label [nzSm]="7" [nzXs]="12" nzRequired>{{
+          <nz-form-label [nzSm]="7" [nzXs]="12">{{
             "note" | translate
             }}</nz-form-label>
           <nz-form-control [nzSm]="15" [nzXs]="24" nzErrorTip="">

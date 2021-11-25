@@ -5,7 +5,15 @@ import { ItemListComponent } from './item/item-list.component';
 import { SettingComponent} from "./setting.component";
 import {MENU_ITEMS, PermissionKeys, ROUTES, TENANT_SETTINGS} from "@sgxbz/shared";
 
-export function register_module() {
+const ITEM_PERMISSION_KEY = {
+  HIDDEN: 999999,
+  ITEM_SECTION:3,
+  ITEM_SECTION__ITEM:21,
+  ITEM_SECTION__ITEM_TYPE:22,
+  ITEM_SECTION__UNIT:23,
+}
+
+export function register_item_module() {
   ROUTES.find(x => x.path === "")
     .children.splice(0, 0, ...[
     {
@@ -39,11 +47,11 @@ export function register_module() {
       expanded: false,
       icon: 'shopping-cart',
       index:2,
-      permissionKey: PermissionKeys.SALE_SECTION,
+      permissionKey: ITEM_PERMISSION_KEY.ITEM_SECTION,
       children: [
-        {label: 'item', routerLink: '/product/item', permissionKey: PermissionKeys.SALE_SECTION},
-        {label: 'item_type', routerLink: '/product/item-type', permissionKey: PermissionKeys.SALE_SECTION},
-        {label: 'unit', routerLink: '/product/unit', permissionKey: PermissionKeys.SALE_SECTION}
+        {label: 'item', routerLink: '/product/item', permissionKey: ITEM_PERMISSION_KEY.ITEM_SECTION__ITEM},
+        {label: 'item_type', routerLink: '/product/item-type', permissionKey: ITEM_PERMISSION_KEY.ITEM_SECTION__ITEM_TYPE},
+        {label: 'unit', routerLink: '/product/unit', permissionKey: ITEM_PERMISSION_KEY.ITEM_SECTION__UNIT}
       ]
     }
   );

@@ -9,10 +9,10 @@ import { SharedModule } from '@sgxbz/shared';
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { NgModule } from '@angular/core';
 import { ItemModule } from '../../projects/my-lib/src/product/item.module';
-import { register_module } from '../../projects/my-lib/src/product/product.routes';
+import { register_item_module } from '../../projects/my-lib/src/product/product.routes';
 
 console.log('Routers ', ROUTES);
-register_module()
+register_item_module()
 export class LazyTranslateLoader implements TranslateLoader {
   getTranslation(lang: string): Observable<any> {
     return from(import(`../assets/i18n/${lang}.json`));

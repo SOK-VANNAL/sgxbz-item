@@ -42,7 +42,7 @@ import { TranslateService } from '@ngx-translate/core';
       </div>
     </div>
   `,
-  styles: [``],
+  styleUrls: ['../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
 })
 export class SettingComponent implements OnInit {
   frm: FormGroup;
