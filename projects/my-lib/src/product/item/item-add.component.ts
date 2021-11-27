@@ -178,7 +178,7 @@ export class ItemAddComponent implements OnInit{
           detail: result.detail,
           note: result.note,
           image: result.image,
-          barcode: result.barcode,
+          barcode: '',
           unitId: result.unitId,
           cost: result.cost,
           price: result.price,
