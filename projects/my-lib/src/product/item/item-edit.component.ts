@@ -92,10 +92,10 @@ import { TranslateService } from '@ngx-translate/core';
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
-            <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
+            <nz-form-label [nzSm]="8" [nzXs]="24">{{
               "barcode" | translate
               }}</nz-form-label>
-            <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="" nzHasFeedback>
+            <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="">
               <input nz-input formControlName="barcode"/>
             </nz-form-control>
           </nz-form-item>
@@ -196,7 +196,7 @@ export class ItemEditComponent implements OnInit{
     );
   }
   initControl(item: ItemEdit): void{
-    const {nameMaxLengthValidator, noteMaxLengthValidator, codeMaxLengthValidator, required, pattern, nameExistValidator, codeExistValidator, barcodeExistValidator, priceValidator} = CommonValidators;
+    const {nameMaxLengthValidator, noteMaxLengthValidator, codeMaxLengthValidator, required, nameExistValidator, codeExistValidator, priceValidator} = CommonValidators;
     this.frm = this.fb.group({
       code: [{value: item?.code, disabled: true }, [required, codeMaxLengthValidator()], [codeExistValidator(this.itemService, this.id)]],
       itemTypeId: [item?.itemTypeId, [required]],
@@ -204,7 +204,7 @@ export class ItemEditComponent implements OnInit{
       detail: [item?.detail, [noteMaxLengthValidator()]],
       note: [item?.note, [noteMaxLengthValidator()]],
       image: [item?.image, []],
-      barcode: [item?.barcode, [codeMaxLengthValidator()], [barcodeExistValidator(this.itemService, this.id)]],
+      barcode: [item?.barcode, [codeMaxLengthValidator()]],
       unitId: [item?.unitId, [required]],
       cost: [item?.cost, [required, priceValidator]],
       price: [item?.price, [required, priceValidator]],

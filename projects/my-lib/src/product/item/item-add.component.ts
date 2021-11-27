@@ -90,10 +90,10 @@ import {SysSettingService} from '@sgxbz/shared';
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
-            <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>{{
+            <nz-form-label [nzSm]="8" [nzXs]="24">{{
               "barcode" | translate
               }}</nz-form-label>
-            <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="" nzHasFeedback>
+            <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="">
               <input nz-input formControlName="barcode"/>
             </nz-form-control>
           </nz-form-item>
@@ -194,8 +194,8 @@ export class ItemAddComponent implements OnInit{
     }
   }
   initControl(item: ItemAdd): void{
-    const {required, nameMaxLengthValidator, noteMaxLengthValidator, barcodeExistValidator,
-      codeMaxLengthValidator, pattern, nameExistValidator, codeExistValidator, priceValidator} = CommonValidators;
+    const {required, nameMaxLengthValidator, noteMaxLengthValidator,
+      codeMaxLengthValidator, nameExistValidator, codeExistValidator, priceValidator} = CommonValidators;
     this.frm = this.fb.group({
       code: [{value: item?.code, disabled: !!this.itemAutoId}, [required, codeMaxLengthValidator()], [codeExistValidator(this.itemService, this.id ?? 0)]],
       itemTypeId: [item?.itemTypeId, [required]],
@@ -203,7 +203,7 @@ export class ItemAddComponent implements OnInit{
       detail: [item?.detail, [noteMaxLengthValidator()]],
       note: [item?.note, [noteMaxLengthValidator()]],
       image: [item?.image, []],
-      barcode: [item?.barcode, [codeMaxLengthValidator()], [barcodeExistValidator(this.itemService, this.id ?? 0)]],
+      barcode: [item?.barcode, [codeMaxLengthValidator()]],
       unitId: [item?.unitId, [required]],
       cost: [0, [required, priceValidator]],
       price: [0, [required, priceValidator]],

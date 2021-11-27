@@ -226,16 +226,16 @@ export class ItemViewComponent implements OnInit, OnDestroy{
     }
     initControl(item: ItemView): void{
       this.frm = this.fb.group({
-        code: [{value: item.code, disabled: true}, [Validators.required]],
-        itemTypeId: [{value: item.itemTypeId, disabled: true}, [Validators.required]],
-        name: [{value: item.name, disabled: true}, [Validators.required]],
+        code: [{value: item.code, disabled: true}, []],
+        itemTypeId: [{value: item.itemTypeId, disabled: true}, []],
+        name: [{value: item.name, disabled: true}, []],
         detail: [{value: item.detail, disabled: true}, []],
         note: [{value: item.note, disabled: true}, []],
         image: [{value: item.image, disabled: true}, []],
         barcode: [{value: item.barcode, disabled: true}, []],
-        unitId: [{value: item.unitId, disabled: true}, [Validators.required]],
-        cost: [{value: item.cost, disabled: true}, [Validators.required, Validators.pattern('-?[0-9]+(\\.[0-9][0-9]?)?')]],
-        price: [{value: item.price, disabled: true}, [Validators.required, Validators.pattern('-?[0-9]+(\\.[0-9][0-9]?)?')]],
+        unitId: [{value: item.unitId, disabled: true}, []],
+        cost: [{value: item.cost, disabled: true}, []],
+        price: [{value: item.price, disabled: true}, []],
         isSale: [{value: item.isSale, disabled: true}, []],
         isPurchase: [{value: item.isPurchase, disabled: true}, []]
       });
