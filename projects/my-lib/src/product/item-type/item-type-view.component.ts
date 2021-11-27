@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-item-type-view',
   template: `
-    <div *nzModalTitle>
-      <span>{{ (itemType?.name || ('loading'|translate)) | textLimit:30}}</span>
+    <div *nzModalTitle class="modal-header-ellipsis">
+      <span>{{ (itemType?.name || ('loading'|translate))}}</span>
     </div>
     <div class="modal-content">
       <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>

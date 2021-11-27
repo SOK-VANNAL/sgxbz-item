@@ -7,10 +7,10 @@ import { ItemUiService } from './item-ui.service';
 @Component({
   selector: 'app-item-view',
   template: `
-    <div *nzModalTitle>
+    <div *nzModalTitle class="modal-header-ellipsis">
       <span *ngIf="!id">{{ 'add'|translate}}</span>
       <span *ngIf="id">
-        {{ (item?.name || ('loading'|translate)) | textLimit:50}}
+        {{ (item?.name || ('loading'|translate))}}
         </span>
     </div>
     <div class="modal-content">

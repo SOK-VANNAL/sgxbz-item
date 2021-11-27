@@ -9,10 +9,10 @@ import { CommonValidators } from '@sgxbz/shared';
 @Component({
   selector: 'app-unit-edit',
   template: `
-    <div *nzModalTitle>
+    <div *nzModalTitle class="modal-header-ellipsis">
       <span *ngIf="!id">{{ 'add'|translate}}</span>
       <span *ngIf="id">
-        {{ (unit?.name || ('loading'|translate)) | textLimit: 30}}
+        {{ (unit?.name || ('loading'|translate))}}
         </span>
     </div>
     <div class="modal-content">

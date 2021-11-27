@@ -8,10 +8,10 @@ import { CommonValidators } from '@sgxbz/shared';
 @Component({
   selector: 'app-item-type-edit',
   template: `
-    <div *nzModalTitle>
+    <div *nzModalTitle class="modal-header-ellipsis">
       <span *ngIf="!id">{{ 'add'|translate}}</span>
       <span *ngIf="id">
-        {{ (itemType?.name || ('loading'|translate)) | textLimit:30}}
+        {{ (itemType?.name || ('loading'|translate))}}
         </span>
     </div>
     <div class="modal-content">
