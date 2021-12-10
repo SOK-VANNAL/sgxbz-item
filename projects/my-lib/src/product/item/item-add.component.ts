@@ -207,7 +207,7 @@ export class ItemAddComponent implements OnInit{
       unitId: [item?.unitId, [required]],
       cost: [0, [required, priceValidator]],
       price: [0, [required, priceValidator]],
-      isSale: [false, []],
+      isSale: [true, []],
       isPurchase: [false, []]
     });
   }
