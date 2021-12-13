@@ -16,8 +16,8 @@ import { CommonValidators } from '@sgxbz/shared';
     </div>
     <div class="modal-content">
       <nz-spin *ngIf="loading" style="position: absolute; top: 50%; left: 50%"></nz-spin>
-      <div *ngIf="errMessage && !loading" style="text-align: center; margin-top: 10px">
-        <span nz-typography nzType="danger">{{errMessage}}</span>
+      <div *ngIf="errMessage && !loading" nz-row nzJustify="center" style="margin:2px 0">
+        <span nz-typography nzType="danger" style="position: absolute">{{errMessage}}</span>
       </div>
       <form nz-form [formGroup]="frm" (ngSubmit)="submit()">
         <nz-form-item>
@@ -29,7 +29,7 @@ import { CommonValidators } from '@sgxbz/shared';
           </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item *ngIf="!errMessage && unit.name">
+        <nz-form-item>
           <nz-form-label [nzSm]="7" [nzXs]="12">{{
             "note" | translate
             }}</nz-form-label>
@@ -50,7 +50,12 @@ import { CommonValidators } from '@sgxbz/shared';
       </div>
     </div>
   `,
-  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss'],
+  styles: [`
+    ::ng-deep .ant-modal-body {
+      padding: 0 !important;
+    }
+  `]
 })
 
 export class UnitDeleteComponent implements OnInit{
@@ -71,7 +76,7 @@ export class UnitDeleteComponent implements OnInit{
       this.loading = true;
       const canRemove$ = this.unitService.inused(this.id);
       const find$ = canRemove$.pipe(switchMap(x => {
-        if (!x.can){ this.errMessage = x.message; }
+        if (!x.can){ this.errMessage = x.message; this.frm.disable()}
         return this.unitService.find(this.id);
       }));
       find$.pipe(finalize(() => this.loading = false))

@@ -54,7 +54,12 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
       </div>
     </div>
   `,
-  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss'],
+  styles: [`
+    ::ng-deep .ant-modal-body {
+      padding: 0 !important;
+    }
+  `]
 })
 export class UnitViewComponent implements OnInit, OnDestroy{
   constructor(

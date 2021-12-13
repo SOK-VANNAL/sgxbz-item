@@ -48,7 +48,12 @@ import { CommonValidators } from '@sgxbz/shared';
       </form>
     </div>
   `,
-  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss']
+  styleUrls: ['../../../../../node_modules/@sgxbz/shared/assets/styles/operation.page.scss'],
+  styles: [`
+    ::ng-deep .ant-modal-body {
+      padding: 0 !important;
+    }
+  `]
 })
 
 export class UnitAddComponent implements OnInit{

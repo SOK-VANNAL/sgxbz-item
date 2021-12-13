@@ -41,7 +41,7 @@ export class ItemUiService {
       nzMaskClosable: false,
       nzWrapClassName: 'vertical-top-modal',
       nzWidth: '480px',
-      nzBodyStyle: {height: '220px'},
+      nzBodyStyle: {height: '210px'},
       nzOnOk: (e) => {
         this.refresher.emit({key: 'deleted', value: e.item});
       }

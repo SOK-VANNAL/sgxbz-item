@@ -57,8 +57,8 @@ export class LazyTranslateLoader implements TranslateLoader {
     },
     {
       provide: 'PRODUCT_API_URL',
-      useValue: 'https://sale-api.sgx.bz/api'
-    }
+      useValue: 'https://dev-saleapi.sgx.bz/api'
+    },
   ],
   exports: [
   ],
